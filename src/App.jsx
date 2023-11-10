@@ -1,10 +1,11 @@
-import Navbar from './components/Navbar';
+import { Outlet } from 'react-router-dom'
+
 function App() {
 
   return (
     <>
-    <Navbar/>
-      <h1>Bisos Resturant mangement system</h1>
+    {/* Main Layout */}
+    <Outlet></Outlet>    
     </>
   )
 }
