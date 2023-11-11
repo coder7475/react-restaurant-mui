@@ -1,6 +1,7 @@
 import cartLogo from "../assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png";
 
 const Navbar = () => {
+
   return (
     <header className="bg-[#15151580] text-white">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row justify-between">
