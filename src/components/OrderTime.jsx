@@ -8,7 +8,7 @@ const OrderTime = ({heading, subHeading}) => {
         ---{subHeading}---
       </h1>
       <hr className="max-w-[424px] h-1 mx-auto mt-4" />
-      <h3 className="text-[40px] font-normal text-[#151515] py-2">{heading}</h3>
+      <h3 className="text-[40px] font-normal py-2">{heading}</h3>
       <hr className="max-w-[424px] h-1 mx-auto mb-12" />
     </div>
   );

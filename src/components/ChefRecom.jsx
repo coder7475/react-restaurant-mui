@@ -63,9 +63,9 @@ function Recommanded(props) {
 
 Recommanded.propTypes = {
   salad: PropTypes.shape({
-    image: PropTypes.any,
-    name: PropTypes.any,
-    recipe: PropTypes.any
+    image: PropTypes.string,
+    name: PropTypes.string,
+    recipe: PropTypes.string
   })
 }
 
