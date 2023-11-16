@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 import Swipper from "../components/Swipper";
 import OrderTime from "../components/OrderTime";
 import Description from "../components/Description";
+import OurMenu from '../components/OurMenu';
 
 const Homepage = () => {
   return (
@@ -19,6 +20,7 @@ const Homepage = () => {
           subHeading="Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, libero accusamus laborum deserunt ratione dolor officiis praesentium! Deserunt magni aperiam dolor eius dolore at, nihil iusto ducimus incidunt quibusdam nemo."
         />
       </div>
+      <OurMenu/>
       <Footer />
     </main>
   );
