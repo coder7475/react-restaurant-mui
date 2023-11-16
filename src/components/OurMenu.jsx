@@ -61,6 +61,10 @@ const OurMenu = () => {
           <PopularDish key={dish._id} dish={dish}></PopularDish>
         ))}
       </div>
+      <div className="flex justify-center items-center mt-24">
+
+      <button className="w-[178px] py-2 border-b-[3px] border-y-[#1F2937] rounded-lg">View Full Menu</button>
+      </div>
     </div>
   );
 };
