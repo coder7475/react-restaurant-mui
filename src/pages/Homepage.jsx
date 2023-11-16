@@ -4,6 +4,7 @@ import Swipper from "../components/Swipper";
 import OrderTime from "../components/OrderTime";
 import Description from "../components/Description";
 import OurMenu from '../components/OurMenu';
+import CallUs from '../components/CallUs';
 
 const Homepage = () => {
   return (
@@ -21,6 +22,7 @@ const Homepage = () => {
         />
       </div>
       <OurMenu/>
+      <CallUs/>
       <Footer />
     </main>
   );
