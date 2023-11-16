@@ -3,15 +3,11 @@ export default function CardImageOverlay() {
   return (
     <>
       {/*<!-- Component: Image overlay card --> */}
-      <div className="overflow-hidden rounded bg-white text-slate-500 h-[900px] mb-28">
+      <div className="overflow-hidden bg-[url('./../../src/assets/home/featured.jpg')] bg-fixed rounded bg-white  text-slate-500 mb-28">
         {/*  <!-- Image --> */}
-        <figure className="relative">
-          <img
-            src="/src/assets/home/featured.jpg"
-            alt="card image"
-            className="aspect-video w-full"
-          />
-          <figcaption className="absolute top-0 flex justify-center items-center flex-col h-full w-full bg-gradient-to-r from-[#151515B3] to-[#151515B3] p-6 text-white">
+        <figure className="">
+         
+          <figcaption className="flex justify-center items-center flex-col h-full w-full bg-gradient-to-r from-[#151515B3] to-[#151515B3] p-6 text-white">
             <OrderTime subHeading="Check it out" heading="FROM OUR MENU" />
             <div className="flex gap-4">
               <img
