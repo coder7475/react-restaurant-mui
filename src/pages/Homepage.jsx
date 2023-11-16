@@ -7,6 +7,7 @@ import OurMenu from '../components/OurMenu';
 import CallUs from '../components/CallUs';
 import ChefRecom from '../components/ChefRecom';
 import CardImageOverlay from '../components/CardImageOverlay';
+import Reviews from '../components/Reviews';
 
 const Homepage = () => {
   return (
@@ -27,6 +28,7 @@ const Homepage = () => {
       <CallUs/>
       <ChefRecom/>
       <CardImageOverlay/>
+      <Reviews/>
       <Footer />
     </main>
   );
