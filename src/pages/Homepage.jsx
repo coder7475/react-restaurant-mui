@@ -14,7 +14,7 @@ const Homepage = () => {
         subHeading="---From 11:00am to 10:00pm---"
       />
       <Swipper />
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <Description
           heading="Bistro Boss"
           subHeading="Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, libero accusamus laborum deserunt ratione dolor officiis praesentium! Deserunt magni aperiam dolor eius dolore at, nihil iusto ducimus incidunt quibusdam nemo."
