@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import cartLogo from "../assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png";
 
 const Navbar = () => {
@@ -12,10 +13,14 @@ const Navbar = () => {
           </div>
         </a>
         <nav className="flex flex-wrap items-center text-lg">
-          <a className="mr-5 hover:text-[#EEFF25]">HOME</a>
+        <Link to="/">
+            <div className="mr-5 hover:text-[#EEFF25]">Home</div>
+          </Link>
           <a className="mr-5 hover:text-[#EEFF25]">CONTACT US</a>
           <a className="mr-5 hover:text-[#EEFF25]">DASHBOARD</a>
-          <a className="mr-5 hover:text-[#EEFF25]">OUR MENU</a>
+          <Link to="menu">
+            <div className="mr-5 hover:text-[#EEFF25]">OUR MENU</div>
+          </Link>
           <a className="mr-5 hover:text-[#EEFF25]">OUR SHOP</a>
           <a className="mr-5 hover:text-[#EEFF25]">
             <img src={cartLogo} alt="" className="w-[62px] " />

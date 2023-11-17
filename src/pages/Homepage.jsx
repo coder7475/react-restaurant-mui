@@ -8,10 +8,16 @@ import CallUs from '../components/CallUs';
 import ChefRecom from '../components/ChefRecom';
 import CardImageOverlay from '../components/CardImageOverlay';
 import Reviews from '../components/Reviews';
+import { Helmet } from 'react-helmet-async';
+
+import coverImg from './../assets/home/chef-service.jpg'
 
 const Homepage = () => {
   return (
     <main>
+      <Helmet>
+        <title>Bistro Boss | Home</title>
+      </Helmet>
       <Banner />
       <OrderTime
         heading="ORDER ONLINE"
@@ -20,6 +26,7 @@ const Homepage = () => {
       <Swipper />
       <div className="max-w-4xl mx-auto">
         <Description
+          img={coverImg}
           heading="Bistro Boss"
           subHeading="Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, libero accusamus laborum deserunt ratione dolor officiis praesentium! Deserunt magni aperiam dolor eius dolore at, nihil iusto ducimus incidunt quibusdam nemo."
         />
@@ -27,7 +34,7 @@ const Homepage = () => {
       <OurMenu/>
       <CallUs/>
       <ChefRecom/>
-      <CardImageOverlay/>
+      <CardImageOverlay />
       <Reviews/>
       <Footer />
     </main>
