@@ -34,9 +34,16 @@ const Menu = () => {
       return res.data;
     },
   });
-
+  // fetch the salads
+  const { isLoading: saladLoading, data: salads } = useQuery({
+    queryKey: ["salad"],
+    queryFn: async () => {
+      const res = await axios.get("/salad");
+      return res.data;
+    },
+  });
   // Loading
-  if (OffLoading || dessertLoading || pizzaLoading) {
+  if (OffLoading || dessertLoading || pizzaLoading || saladLoading) {
     return <span className="text-5xl text-center">Loading.....</span>;
   }
 
@@ -74,6 +81,15 @@ const Menu = () => {
       />
       <OurMenu
         popularDishes={pizzas}
+        btnText="ORDER YOUR FAVOURITE FOOD"
+      />
+      <Description
+        img={coverImg}
+        heading="Salads"
+        subHeading="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      />
+      <OurMenu
+        popularDishes={salads}
         btnText="ORDER YOUR FAVOURITE FOOD"
       />
     </main>
