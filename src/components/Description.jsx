@@ -11,7 +11,7 @@ function Description({ heading, subHeading, img }) {
       style={{
         backgroundImage: `url(${img})`,
         backgroundRepeat: "no-repeat",
-        height: "800px",
+        height: "600px",
         // marginBottom: "80px",
         display: "flex",
         alignItems: "center",
