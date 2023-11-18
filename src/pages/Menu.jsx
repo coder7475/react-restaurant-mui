@@ -10,6 +10,7 @@ import coverImg from "./../assets/home/chef-service.jpg";
 const Menu = () => {
   const axios = useAxios();
   // const [dishes, setDishes] = useState([]);
+  // fetch offered dishes
   const { isLoading: OffLoading, data: offeredDishes } = useQuery({
     queryKey: ["offered"],
     queryFn: async () => {
@@ -17,7 +18,7 @@ const Menu = () => {
       return res.data;
     },
   });
-
+  // fetch the desserts
   const { isLoading: dessertLoading, data: dessertDishes } = useQuery({
     queryKey: ["dessert"],
     queryFn: async () => {
@@ -25,15 +26,21 @@ const Menu = () => {
       return res.data;
     },
   });
+  // fetch the pizzas
+  const { isLoading: pizzaLoading, data: pizzas } = useQuery({
+    queryKey: ["pizza"],
+    queryFn: async () => {
+      const res = await axios.get("/pizza");
+      return res.data;
+    },
+  });
 
-  if (OffLoading) {
+  // Loading
+  if (OffLoading || dessertLoading || pizzaLoading) {
     return <span className="text-5xl text-center">Loading.....</span>;
   }
 
-  if (dessertLoading) {
-    return <span className="text-5xl text-center">Loading.....</span>;
-  }
-
+  // console.log(pizzas);
   return (
     <main className="min-h-screen">
       <Helmet>
@@ -58,6 +65,15 @@ const Menu = () => {
       />
       <OurMenu
         popularDishes={dessertDishes}
+        btnText="ORDER YOUR FAVOURITE FOOD"
+      />
+      <Description
+        img={coverImg}
+        heading="Pizza"
+        subHeading="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      />
+      <OurMenu
+        popularDishes={pizzas}
         btnText="ORDER YOUR FAVOURITE FOOD"
       />
     </main>
