@@ -1,8 +1,5 @@
 import PropTypes from "prop-types"
-import OrderTime from "./OrderTime";
-import useAxios from "../hooks/useAxios";
-// import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+
 
 function PopularDish(props) {
   return (
@@ -36,26 +33,11 @@ PopularDish.propTypes = {
   })
 }
 
-const OurMenu = () => {
-  const axios = useAxios();
-  // const [dishes, setDishes] = useState([]);
-  const { isLoading, data: popularDishes } = useQuery({
-    queryKey: ["popular"],
-    queryFn: async () => {
-      const res = await axios.get("/popular");
-      return res.data;
-    },
-  });
-
-  if (isLoading) {
-    return <span className="text-5xl text-center">Loading.....</span>;
-  }
-
+const OurMenu = ({ popularDishes, btnText }) => {
   // console.log(popularDishes);
 
   return (
     <div className="my-24">
-      <OrderTime subHeading="Check it out" heading="FROM OUR MENU" />
       <div className="grid grid-col-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         {popularDishes.map((dish) => (
           <PopularDish key={dish._id} dish={dish}></PopularDish>
@@ -63,10 +45,17 @@ const OurMenu = () => {
       </div>
       <div className="flex justify-center items-center mt-24">
 
-      <button className="w-[178px] py-2 border-b-[3px] border-y-[#1F2937] rounded-lg">View Full Menu</button>
+      <button className="w-fit py-2 border-b-[3px] border-y-[#1F2937] rounded-lg">{btnText}</button>
       </div>
     </div>
   );
 };
+
+OurMenu.propTypes = {
+  btnText: PropTypes.any,
+  popularDishes: PropTypes.shape({
+    map: PropTypes.func
+  })
+}
 
 export default OurMenu;
