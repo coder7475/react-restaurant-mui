@@ -6,6 +6,7 @@ import OurMenu from "../components/OurMenu";
 import useAxios from "../hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import coverImg from "./../assets/home/chef-service.jpg";
+import Footer from '../components/Footer';
 
 const Menu = () => {
   const axios = useAxios();
@@ -110,6 +111,7 @@ const Menu = () => {
         popularDishes={soups}
         btnText="ORDER YOUR FAVOURITE FOOD"
       />
+      <Footer/>
     </main>
   );
 };
