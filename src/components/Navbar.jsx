@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import cartLogo from "../assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
-
   return (
     <header className="bg-[#15151580] text-white">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row justify-between">
@@ -13,15 +13,27 @@ const Navbar = () => {
           </div>
         </a>
         <nav className="flex flex-wrap items-center text-lg">
-        <Link to="/">
+          <Link to="/">
             <div className="mr-5 hover:text-[#EEFF25]">Home</div>
           </Link>
           <a className="mr-5 hover:text-[#EEFF25]">CONTACT US</a>
           <a className="mr-5 hover:text-[#EEFF25]">DASHBOARD</a>
-          <Link to="menu">
+          <NavLink
+            to="menu"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
+            }
+          >
             <div className="mr-5 hover:text-[#EEFF25]">OUR MENU</div>
-          </Link>
-          <a className="mr-5 hover:text-[#EEFF25]">OUR SHOP</a>
+          </NavLink>
+          <NavLink
+            to="shop"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
+            }
+          >
+            <a className="mr-5 hover:text-[#EEFF25]">OUR SHOP</a>
+          </NavLink>
           <a className="mr-5 hover:text-[#EEFF25]">
             <img src={cartLogo} alt="" className="w-[62px] " />
           </a>
