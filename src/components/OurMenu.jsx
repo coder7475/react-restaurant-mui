@@ -53,9 +53,7 @@ const OurMenu = ({ popularDishes, btnText }) => {
 
 OurMenu.propTypes = {
   btnText: PropTypes.any,
-  popularDishes: PropTypes.shape({
-    map: PropTypes.func
-  })
+  popularDishes: PropTypes.any
 }
 
 export default OurMenu;
