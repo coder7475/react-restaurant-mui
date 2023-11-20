@@ -81,9 +81,7 @@ const ChefRecom = ({ dishes }) => {
 };
 
 ChefRecom.propTypes = {
-  dishes: PropTypes.shape({
-    slice: PropTypes.func
-  })
+  dishes: PropTypes.any
 }
 
 export default ChefRecom;

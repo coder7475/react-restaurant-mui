@@ -26,7 +26,7 @@ const Navbar = () => {
           <p className="mr-5 hover:text-[#EEFF25]">CONTACT US</p>
           <p className="mr-5 hover:text-[#EEFF25]">DASHBOARD</p>
           <NavLink
-            to="menu"
+            to="/menu"
             className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
             }
@@ -34,7 +34,7 @@ const Navbar = () => {
             <div className="mr-5 hover:text-[#EEFF25]">OUR MENU</div>
           </NavLink>
           <NavLink
-            to="shop"
+            to="/shop"
             className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
             }
@@ -70,7 +70,7 @@ const Navbar = () => {
           ) : (
             <>
               <NavLink
-                to="signup"
+                to="/signup"
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
                 }
@@ -78,7 +78,7 @@ const Navbar = () => {
                 <p className="mr-5 hover:text-[#EEFF25]">Sign Up</p>
               </NavLink>
               <NavLink
-                to="login"
+                to="/login"
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
                 }

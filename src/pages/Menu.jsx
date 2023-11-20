@@ -4,17 +4,13 @@ import img from "./../assets/menu/banner3.jpg";
 import OrderTime from "../components/OrderTime";
 import OurMenu from "../components/OurMenu";
 import coverImg from "./../assets/home/chef-service.jpg";
-import Footer from '../components/Footer';
-import useMenuData from '../hooks/useMenuData';
+import Footer from "../components/Footer";
+import useMenuData from "../hooks/useMenuData";
+import Navbar from "../components/Navbar";
 
 const Menu = () => {
-  const {
-    getSalads,
-    getDesserts,
-    getSoups,
-    getOfferedDishes,
-    getPizzas
-  } = useMenuData();
+  const { getSalads, getDesserts, getSoups, getOfferedDishes, getPizzas } =
+    useMenuData();
   // const [dishes, setDishes] = useState([]);
   // fetch offered dishes
   const { isLoading: OffLoading, data: offeredDishes } = getOfferedDishes;
@@ -27,7 +23,13 @@ const Menu = () => {
   // fetch the soups
   const { isLoading: soupLoading, data: soups } = getSoups;
   // Loading
-  if (OffLoading || dessertLoading || pizzaLoading || saladLoading || soupLoading) {
+  if (
+    OffLoading ||
+    dessertLoading ||
+    pizzaLoading ||
+    saladLoading ||
+    soupLoading
+  ) {
     return <span className="text-5xl text-center">Loading.....</span>;
   }
 
@@ -37,6 +39,10 @@ const Menu = () => {
       <Helmet>
         <title>Bistro Boss | MENU</title>
       </Helmet>
+      {/* Main Layout */}
+      <header className="fixed z-10 w-full">
+        <Navbar />
+      </header>
       <Description
         img={img}
         subHeading="Would you like to try a dish?"
@@ -63,30 +69,21 @@ const Menu = () => {
         heading="Pizza"
         subHeading="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
       />
-      <OurMenu
-        popularDishes={pizzas}
-        btnText="ORDER YOUR FAVOURITE FOOD"
-      />
+      <OurMenu popularDishes={pizzas} btnText="ORDER YOUR FAVOURITE FOOD" />
       <Description
         img={coverImg}
         heading="Salads"
         subHeading="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
       />
-      <OurMenu
-        popularDishes={salads}
-        btnText="ORDER YOUR FAVOURITE FOOD"
-      />
-      
+      <OurMenu popularDishes={salads} btnText="ORDER YOUR FAVOURITE FOOD" />
+
       <Description
         img={coverImg}
         heading="Soups"
         subHeading="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
       />
-      <OurMenu
-        popularDishes={soups}
-        btnText="ORDER YOUR FAVOURITE FOOD"
-      />
-      <Footer/>
+      <OurMenu popularDishes={soups} btnText="ORDER YOUR FAVOURITE FOOD" />
+      <Footer />
     </main>
   );
 };

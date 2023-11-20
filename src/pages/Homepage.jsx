@@ -13,6 +13,7 @@ import useAxios from "../hooks/useAxios";
 // import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import coverImg from './../assets/home/chef-service.jpg'
+import Navbar from '../components/Navbar';
 
 const Homepage = () => {
   const axios = useAxios();
@@ -42,6 +43,10 @@ const Homepage = () => {
       <Helmet>
         <title>Bistro Boss | Home</title>
       </Helmet>
+      {/* Main Layout */}
+      <header className="fixed z-10 w-full">
+        <Navbar />
+      </header>
       <Banner />
       <OrderTime
         heading="ORDER ONLINE"

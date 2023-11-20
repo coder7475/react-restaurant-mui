@@ -7,6 +7,7 @@ import { useState } from "react";
 import useMenuData from "../hooks/useMenuData";
 import ChefRecom from "../components/ChefRecom";
 import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 
 function DishesTabs(props) {
   return (
@@ -118,7 +119,10 @@ const OurShop = () => {
     <div>
       <Helmet>
         <title>Bistro Boss | SHOP</title>
-      </Helmet>
+      </Helmet>{/* Main Layout */}
+      <header className="fixed z-10 w-full">
+        <Navbar />
+      </header>
       <Description
         img={img}
         subHeading="Would you like to try a dish?"

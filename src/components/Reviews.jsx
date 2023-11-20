@@ -19,7 +19,7 @@ function Details(props) {
         value={props.review.rating}
         readOnly
       />
-      <p className="w-2/3 mx-auto text-center font-mono text-xl font-normal">
+      <div className="w-2/3 mx-auto text-center font-mono text-xl font-normal">
         <div className="flex justify-center text-5xl mb-10">
           <FaQuoteLeft />
         </div>
@@ -28,17 +28,13 @@ function Details(props) {
         <h3 className="text-[#CD9003] text-3xl font-medium font-sans">
           {props.review.name}
         </h3>
-      </p>
+      </div>
     </div>
   );
 }
 
 Details.propTypes = {
-  review: PropTypes.shape({
-    details: PropTypes.string,
-    name: PropTypes.string,
-    rating: PropTypes.any
-  })
+  review: PropTypes.any
 }
 
 const Reviews = () => {
