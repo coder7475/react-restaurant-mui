@@ -6,6 +6,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { useState } from "react";
 import useMenuData from "../hooks/useMenuData";
 import ChefRecom from "../components/ChefRecom";
+import Footer from '../components/Footer';
 
 function DishesTabs(props) {
   return (
@@ -132,6 +133,7 @@ const OurShop = () => {
         salads={salads}
         soups={soups}
       ></DishesTabs>
+      <Footer/>
     </div>
   );
 };
