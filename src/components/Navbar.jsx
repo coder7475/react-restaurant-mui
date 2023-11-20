@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import cartLogo from "../assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png";
 import { NavLink } from "react-router-dom";
 
@@ -13,11 +12,16 @@ const Navbar = () => {
           </div>
         </a>
         <nav className="flex flex-wrap items-center text-lg">
-          <Link to="/">
+          <NavLink
+            to="/"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
+            }
+          >
             <div className="mr-5 hover:text-[#EEFF25]">Home</div>
-          </Link>
-          <a className="mr-5 hover:text-[#EEFF25]">CONTACT US</a>
-          <a className="mr-5 hover:text-[#EEFF25]">DASHBOARD</a>
+          </NavLink>
+          <p className="mr-5 hover:text-[#EEFF25]">CONTACT US</p>
+          <p className="mr-5 hover:text-[#EEFF25]">DASHBOARD</p>
           <NavLink
             to="menu"
             className={({ isActive, isPending }) =>
@@ -32,11 +36,11 @@ const Navbar = () => {
               isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
             }
           >
-            <a className="mr-5 hover:text-[#EEFF25]">OUR SHOP</a>
+            <p className="mr-5 hover:text-[#EEFF25]">OUR SHOP</p>
           </NavLink>
-          <a className="mr-5 hover:text-[#EEFF25]">
+          <p className="mr-5 hover:text-[#EEFF25]">
             <img src={cartLogo} alt="" className="w-[62px] " />
-          </a>
+          </p>
           <button className="inline-flex items-center py-1 px-3 focus:outline-none  rounded text-base mt-4 md:mt-0 font-extrabold hover:text-[#EEFF25]">
             SIGN OUT
           </button>

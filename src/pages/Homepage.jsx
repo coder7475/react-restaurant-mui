@@ -17,17 +17,26 @@ import coverImg from './../assets/home/chef-service.jpg'
 const Homepage = () => {
   const axios = useAxios();
   // const [dishes, setDishes] = useState([]);
-  const { isLoading, data: popularDishes } = useQuery({
+  const { isLoading:popularLoading, data: popularDishes } = useQuery({
     queryKey: ["popular"],
     queryFn: async () => {
       const res = await axios.get("/popular");
       return res.data;
     },
   });
+  // const [dishes, setDishes] = useState([]);
+  const { isLoading:saladsLoading, data: salads } = useQuery({
+    queryKey: ["salads"],
+    queryFn: async () => {
+      const res = await axios.get("/salad");
+      return res.data;
+    },
+  });
 
-  if (isLoading) {
+  if (popularLoading || saladsLoading) {
     return <span className="text-5xl text-center">Loading.....</span>;
   }
+  
   return (
     <main>
       <Helmet>
@@ -49,7 +58,7 @@ const Homepage = () => {
       <OrderTime subHeading="Check it out" heading="FROM OUR MENU" />
       <OurMenu popularDishes={popularDishes} btnText="View Full Menu"/>
       <CallUs/>
-      <ChefRecom/>
+      <ChefRecom dishes={salads}/>
       <CardImageOverlay />
       <Reviews/>
       <Footer />

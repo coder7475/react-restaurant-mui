@@ -1,7 +1,5 @@
 import PropTypes from "prop-types"
 import OrderTime from "./OrderTime";
-import useAxios from "../hooks/useAxios";
-import { useQuery } from "@tanstack/react-query";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -69,31 +67,24 @@ Recommanded.propTypes = {
   })
 }
 
-const ChefRecom = () => {
-  const axios = useAxios();
-  // const [dishes, setDishes] = useState([]);
-  const { isLoading, data: salads } = useQuery({
-    queryKey: ["salads"],
-    queryFn: async () => {
-      const res = await axios.get("/salad");
-      return res.data;
-    },
-  });
-
-  if (isLoading) {
-    return <span className="text-5xl text-center">Loading.....</span>;
-  }
+const ChefRecom = ({ dishes }) => {
 
   return (
     <div>
       <OrderTime heading="CHEF RECOMMENDS" subHeading="Should Try" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto gap-4">
-        {salads.slice(0, 3).map((salad) => (
+        {dishes.slice(0, 3).map((salad) => (
           <Recommanded key={salad._id} salad={salad}></Recommanded>
         ))}
       </div>
     </div>
   );
 };
+
+ChefRecom.propTypes = {
+  dishes: PropTypes.shape({
+    slice: PropTypes.func
+  })
+}
 
 export default ChefRecom;
