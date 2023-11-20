@@ -17,13 +17,13 @@ const OurShop = () => {
         subHeading="Would you like to try a dish?"
         heading="OUR SHOP"
       />
-      <Tabs className="mt-16 mx-auto max-w-4xl" defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-        <TabList>
-          <Tab>SALAD</Tab>
-          <Tab>PIZZA</Tab>
-          <Tab>SOUPS</Tab>
-          <Tab>DESSERTS</Tab>
-          <Tab>DRINKS</Tab>
+      <Tabs className="mt-16 mx-auto max-w-4xl text-lg" defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)} >
+        <TabList className="flex gap-3 mx-auto max-w-fit">
+          <Tab className={tabIndex==0 && "underline text-[#BB8506] text-lg font-semibold "}>SALAD</Tab>
+          <Tab className={tabIndex==1 && "underline text-[#BB8506] text-lg font-semibold"}>PIZZA</Tab>
+          <Tab className={tabIndex==2 && "underline text-[#BB8506] text-lg font-semibold"}>SOUPS</Tab>
+          <Tab className={tabIndex==3 && "underline text-[#BB8506] text-lg font-semibold"}>DESSERTS</Tab>
+          <Tab className={tabIndex==4 && "underline text-[#BB8506] text-lg font-semibold"}>DRINKS</Tab>
         </TabList>
 
         <TabPanel>

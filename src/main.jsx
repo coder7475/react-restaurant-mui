@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import { router } from "./routes/router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from 'react-helmet-async';
-import 'react-tabs/style/react-tabs.css';
+// import 'react-tabs/style/react-tabs.css';
 
 // Create a query client for tanstack react query
 const queryClient = new QueryClient();
