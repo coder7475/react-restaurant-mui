@@ -3,11 +3,35 @@ import Description from "../components/Description";
 import img from "./../assets/shop/banner2.jpg";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { useState } from "react";
+import useMenuData from "../hooks/useMenuData";
+import ChefRecom from "../components/ChefRecom";
 
 const OurShop = () => {
   const [tabIndex, setTabIndex] = useState(0);
   // console.log(tabIndex);
-  
+
+  const { getSalads, getDesserts, getSoups, getDrinks, getPizzas } =
+    useMenuData();
+
+  const { isLoading: drinksLoading, data: drinks } = getDrinks;
+  // fetch the desserts
+  const { isLoading: dessertLoading, data: desserts } = getDesserts;
+  // fetch the pizzas
+  const { isLoading: pizzaLoading, data: pizzas } = getPizzas;
+  // fetch the salads
+  const { isLoading: saladLoading, data: salads } = getSalads;
+  // fetch the soups
+  const { isLoading: soupLoading, data: soups } = getSoups;
+  // Loading
+  if (
+    drinksLoading ||
+    dessertLoading ||
+    pizzaLoading ||
+    saladLoading ||
+    soupLoading
+  ) {
+    return <span className="text-5xl text-center">Loading.....</span>;
+  }
 
   return (
     <div>
@@ -63,19 +87,19 @@ const OurShop = () => {
         </TabList>
 
         <TabPanel>
-          <h2>Any content 1</h2>
+          <ChefRecom dishes={salads} />
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <ChefRecom dishes={pizzas} />
         </TabPanel>
         <TabPanel>
-          <h2>Any content 3</h2>
+          <ChefRecom dishes={soups} />
         </TabPanel>
         <TabPanel>
-          <h2>Any content 4</h2>
+          <ChefRecom dishes={desserts} />
         </TabPanel>
         <TabPanel>
-          <h2>Any content 5</h2>
+          <ChefRecom dishes={drinks} />
         </TabPanel>
       </Tabs>
     </div>

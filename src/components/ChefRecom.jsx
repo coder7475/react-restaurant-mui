@@ -1,5 +1,4 @@
 import PropTypes from "prop-types"
-import OrderTime from "./OrderTime";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -70,8 +69,8 @@ Recommanded.propTypes = {
 const ChefRecom = ({ dishes }) => {
 
   return (
-    <div>
-      <OrderTime heading="CHEF RECOMMENDS" subHeading="Should Try" />
+    <div className="mt-10">
+     
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto gap-4">
         {dishes.slice(0, 3).map((salad) => (
           <Recommanded key={salad._id} salad={salad}></Recommanded>

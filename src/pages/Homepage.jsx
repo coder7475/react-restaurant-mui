@@ -58,6 +58,7 @@ const Homepage = () => {
       <OrderTime subHeading="Check it out" heading="FROM OUR MENU" />
       <OurMenu popularDishes={popularDishes} btnText="View Full Menu"/>
       <CallUs/>
+      <OrderTime heading="CHEF RECOMMENDS" subHeading="Should Try" />
       <ChefRecom dishes={salads}/>
       <CardImageOverlay />
       <Reviews/>
