@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import { Helmet } from "react-helmet-async";
 import Description from "../components/Description";
 import img from "./../assets/shop/banner2.jpg";
@@ -5,6 +6,85 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { useState } from "react";
 import useMenuData from "../hooks/useMenuData";
 import ChefRecom from "../components/ChefRecom";
+
+function DishesTabs(props) {
+  return (
+    <Tabs
+      className="mt-16 mx-auto max-w-4xl text-lg"
+      defaultIndex={props.tabIndex}
+      onSelect={(index) => props.setTabIndex(index)}
+    >
+      <TabList className="flex gap-3 mx-auto max-w-fit">
+        <Tab
+          className={
+            props.tabIndex == 0 &&
+            "underline text-[#BB8506] text-lg font-semibold "
+          }
+        >
+          SALAD
+        </Tab>
+        <Tab
+          className={
+            props.tabIndex == 1 &&
+            "underline text-[#BB8506] text-lg font-semibold"
+          }
+        >
+          PIZZA
+        </Tab>
+        <Tab
+          className={
+            props.tabIndex == 2 &&
+            "underline text-[#BB8506] text-lg font-semibold"
+          }
+        >
+          SOUPS
+        </Tab>
+        <Tab
+          className={
+            props.tabIndex == 3 &&
+            "underline text-[#BB8506] text-lg font-semibold"
+          }
+        >
+          DESSERTS
+        </Tab>
+        <Tab
+          className={
+            props.tabIndex == 4 &&
+            "underline text-[#BB8506] text-lg font-semibold"
+          }
+        >
+          DRINKS
+        </Tab>
+      </TabList>
+
+      <TabPanel>
+        <ChefRecom dishes={props.salads} />
+      </TabPanel>
+      <TabPanel>
+        <ChefRecom dishes={props.pizzas} />
+      </TabPanel>
+      <TabPanel>
+        <ChefRecom dishes={props.soups} />
+      </TabPanel>
+      <TabPanel>
+        <ChefRecom dishes={props.desserts} />
+      </TabPanel>
+      <TabPanel>
+        <ChefRecom dishes={props.drinks} />
+      </TabPanel>
+    </Tabs>
+  );
+}
+
+DishesTabs.propTypes = {
+  desserts: PropTypes.any,
+  drinks: PropTypes.any,
+  pizzas: PropTypes.any,
+  salads: PropTypes.any,
+  setTabIndex: PropTypes.func,
+  soups: PropTypes.any,
+  tabIndex: PropTypes.number
+}
 
 const OurShop = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -43,65 +123,15 @@ const OurShop = () => {
         subHeading="Would you like to try a dish?"
         heading="OUR SHOP"
       />
-      <Tabs
-        className="mt-16 mx-auto max-w-4xl text-lg"
-        defaultIndex={tabIndex}
-        onSelect={(index) => setTabIndex(index)}
-      >
-        <TabList className="flex gap-3 mx-auto max-w-fit">
-          <Tab
-            className={
-              tabIndex == 0 && "underline text-[#BB8506] text-lg font-semibold "
-            }
-          >
-            SALAD
-          </Tab>
-          <Tab
-            className={
-              tabIndex == 1 && "underline text-[#BB8506] text-lg font-semibold"
-            }
-          >
-            PIZZA
-          </Tab>
-          <Tab
-            className={
-              tabIndex == 2 && "underline text-[#BB8506] text-lg font-semibold"
-            }
-          >
-            SOUPS
-          </Tab>
-          <Tab
-            className={
-              tabIndex == 3 && "underline text-[#BB8506] text-lg font-semibold"
-            }
-          >
-            DESSERTS
-          </Tab>
-          <Tab
-            className={
-              tabIndex == 4 && "underline text-[#BB8506] text-lg font-semibold"
-            }
-          >
-            DRINKS
-          </Tab>
-        </TabList>
-
-        <TabPanel>
-          <ChefRecom dishes={salads} />
-        </TabPanel>
-        <TabPanel>
-          <ChefRecom dishes={pizzas} />
-        </TabPanel>
-        <TabPanel>
-          <ChefRecom dishes={soups} />
-        </TabPanel>
-        <TabPanel>
-          <ChefRecom dishes={desserts} />
-        </TabPanel>
-        <TabPanel>
-          <ChefRecom dishes={drinks} />
-        </TabPanel>
-      </Tabs>
+      <DishesTabs
+        tabIndex={tabIndex}
+        setTabIndex={setTabIndex}
+        drinks={drinks}
+        desserts={desserts}
+        pizzas={pizzas}
+        salads={salads}
+        soups={soups}
+      ></DishesTabs>
     </div>
   );
 };
