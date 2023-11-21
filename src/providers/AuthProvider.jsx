@@ -8,6 +8,7 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signInWithPopup,
+  updateProfile 
 } from "firebase/auth";
 import useAxios from "../hooks/useAxios";
 import Swal from "sweetalert2";
@@ -47,7 +48,7 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  const Register = (email, password) => {
+  const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
@@ -56,6 +57,11 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
+  const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+        displayName: name, photoURL: photo
+    });
+}
   // Watch USER
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -86,8 +92,9 @@ const AuthProvider = ({ children }) => {
     loading,
     googleSignIn,
     logOut,
-    Register,
+    createUser,
     login,
+    updateUserProfile
   };
 
   return (
