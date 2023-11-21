@@ -1,13 +1,15 @@
 import { NavLink } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import Badge from "@mui/material/Badge";
 import { FaShoppingCart } from "react-icons/fa";
+import useCart from '../hooks/useCart';
 const Navbar = () => {
   // eslint-disable-next-line no-unused-vars
   const { user, logOut } = useContext(AuthContext);
   // eslint-disable-next-line no-unused-vars
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
+  const [cart] = useCart();
   const handleSignOut = (e) => {
     e.preventDefault();
     // console.log("Logout");
@@ -57,7 +59,7 @@ const Navbar = () => {
               <NavLink to="/cart">
             <button className="mr-5 hover:text-[#EEFF25]">
               <Badge
-                badgeContent={count}
+                badgeContent={cart.length}
                 color="secondary"
                 anchorOrigin={{
                   vertical: "bottom",
