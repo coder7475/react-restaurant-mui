@@ -39,7 +39,7 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
     login(email, password)
       .then(result => {
         // eslint-disable-next-line no-unused-vars
@@ -107,7 +107,7 @@ const Login = () => {
               data-ripple-light="true"
               disabled={disabled}
             >
-              Sign Up
+              Login
             </button>
             <p className="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
               Already registered?{" "}
