@@ -1,10 +1,11 @@
 import cartLogo from "../assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from '../providers/AuthProvider';
 const Navbar = () => {
   // eslint-disable-next-line no-unused-vars
-  const [user, setuser] = useState(false);
-
+  const { user } = useContext(AuthContext);
+  
   return (
     <header className="bg-[#15151580] text-white">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row justify-between">

@@ -8,7 +8,7 @@ import { router } from "./routes/router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
 // import 'react-tabs/style/react-tabs.css';
-import { AuthProvider } from './providers/AuthProvider';
+import AuthProvider from './providers/AuthProvider';
 
 // Create a query client for tanstack react query
 const queryClient = new QueryClient();
