@@ -8,7 +8,8 @@ const Navbar = () => {
 
   const handleSignOut = (e) => {
     e.preventDefault();
-    console.log("Logout");
+    // console.log("Logout");
+    logOut();
   }
 
   return (
@@ -53,7 +54,8 @@ const Navbar = () => {
 
           {user ? (
             <>
-              <button className="inline-flex items-center py-1 px-3 focus:outline-none  rounded text-base mt-4 md:mt-0 font-extrabold hover:text-[#EEFF25]">
+              <button className="inline-flex items-center py-1 px-3 focus:outline-none  rounded text-base mt-4 md:mt-0 font-extrabold hover:text-[#EEFF25]"  onClick={handleSignOut}>
+                
                 SIGN OUT
               </button>
               <button>
@@ -80,7 +82,6 @@ const Navbar = () => {
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
                 }
-                onClick={handleSignOut}
               >
                 <span className="mr-5 hover:text-[#EEFF25]">Sign Up</span>
               </NavLink>
