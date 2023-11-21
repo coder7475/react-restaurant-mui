@@ -4,8 +4,13 @@ import { useContext } from "react";
 import { AuthContext } from '../providers/AuthProvider';
 const Navbar = () => {
   // eslint-disable-next-line no-unused-vars
-  const { user } = useContext(AuthContext);
-  
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleSignOut = (e) => {
+    e.preventDefault();
+    console.log("Logout");
+  }
+
   return (
     <header className="bg-[#15151580] text-white">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row justify-between">
@@ -75,8 +80,9 @@ const Navbar = () => {
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
                 }
+                onClick={handleSignOut}
               >
-                <p className="mr-5 hover:text-[#EEFF25]">Sign Up</p>
+                <span className="mr-5 hover:text-[#EEFF25]">Sign Up</span>
               </NavLink>
               <NavLink
                 to="/login"
