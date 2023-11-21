@@ -35,7 +35,14 @@ const Navbar = () => {
             <div className="mr-5 hover:text-[#EEFF25]">Home</div>
           </NavLink>
           <p className="mr-5 hover:text-[#EEFF25]">CONTACT US</p>
-          <p className="mr-5 hover:text-[#EEFF25]">DASHBOARD</p>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
+            }
+          >
+            <div className="mr-5 hover:text-[#EEFF25]">Dashboard</div>
+          </NavLink>
           <NavLink
             to="/menu"
             className={({ isActive, isPending }) =>
@@ -56,7 +63,7 @@ const Navbar = () => {
 
           {user ? (
             <>
-              <NavLink to="/cart">
+              <NavLink to="/dashboard/cart">
             <button className="mr-5 hover:text-[#EEFF25]">
               <Badge
                 badgeContent={cart.length}
