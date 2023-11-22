@@ -1,7 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { CiFacebook } from "react-icons/ci";
-import { FaGoogle } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa6";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
@@ -10,6 +7,7 @@ import {
 import { useEffect, useRef, useState, useContext } from "react";
 import { AuthContext } from '../providers/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import SocialLogin from '../components/SocialLogin';
 
 const Login = () => {
   const captchaRef = useRef(null);
@@ -120,11 +118,7 @@ const Login = () => {
             </p>
           </form>
           <p className="text-center text-[#444] ">Or sign in with</p>
-          <div className="flex gap-2 justify-center mt-2">
-            <CiFacebook />
-            <FaGoogle />
-            <FaGithub />
-          </div>
+          <SocialLogin />
         </div>
       </div>
     </div>

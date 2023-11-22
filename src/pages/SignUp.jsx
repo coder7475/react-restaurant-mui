@@ -1,13 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { CiFacebook } from "react-icons/ci";
-import { FaGoogle } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa6";
+
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import SocialLogin from '../components/SocialLogin';
 
 const SignUp = () => {
   const {
@@ -147,11 +146,7 @@ const SignUp = () => {
             </p>
           </form>
           <p className="text-center text-[#444] ">Or sign up with</p>
-          <div className="flex gap-2 justify-center mt-2">
-            <CiFacebook />
-            <FaGoogle />
-            <FaGithub />
-          </div>
+          <SocialLogin/>
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@ import {
   updateProfile 
 } from "firebase/auth";
 import useAxios from "../hooks/useAxios";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
 export const AuthContext = createContext(null);
 
@@ -26,21 +26,7 @@ const AuthProvider = ({ children }) => {
   const googleSignIn = () => {
     setLoading(true);
 
-    return signInWithPopup(auth, provider)
-      .then(() => {
-        Swal.fire({
-          title: "Success!",
-          text: "You have successfully logged in!",
-          icon: "success",
-        });
-      })
-      .catch(() =>
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Something went wrong!",
-        })
-      );
+    return signInWithPopup(auth, provider);
   };
 
   const logOut = () => {
