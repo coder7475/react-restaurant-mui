@@ -1,12 +1,13 @@
 import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "./../hooks/useCart";
-import { useState } from 'react';
+import useAdmin from '../hooks/useAdmin';
 
 const Dashboard = () => {
     const [cart] = useCart();
     // eslint-disable-next-line no-unused-vars
-    const [isAdmin, setIsAdmin] = useState(true);
+     // TODO: get isAdmin value from the database
+     const [isAdmin] = useAdmin();
 
     return (
         <div className="flex">
